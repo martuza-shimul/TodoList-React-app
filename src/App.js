@@ -43,6 +43,18 @@ class App extends Component {
     delTodo = id => {
         this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
     };
+
+    //* Add Todo
+
+    addTodo = title => {
+      const newTodo = {
+        id: 4,
+        title,
+        completed: false
+      }
+      this.setState({ todos: [...this.state.todos, newTodo] });
+    }
+
     render() {
         return (
             <div className="App">
@@ -53,7 +65,7 @@ class App extends Component {
                         markComplete={this.markComplete}
                         delTodo={this.delTodo}
                     />
-                    <AddTodo />
+                    <AddTodo addTodo={this.addTodo}/>
                 </div>
             </div>
         );
